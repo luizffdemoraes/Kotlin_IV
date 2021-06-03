@@ -20,6 +20,10 @@ fun funcao1() {
     try {
         funcao2()
     } catch (e: ClassCastException) {
+//        println(e.message)
+//        println(e.stackTrace)
+//        println(e.cause)
+        println(e.printStackTrace()) //nela temos as 3 informações acima
         println("ClassCastException foi encontrada no codigo")
     }
     println("fim funcao1")
