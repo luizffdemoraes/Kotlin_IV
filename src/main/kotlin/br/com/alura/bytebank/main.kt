@@ -9,7 +9,7 @@ import java.lang.ClassCastException
 fun main() {
     println("início main")
     testaComportamentosConta()
-    funcao1()
+//    funcao1()
     println("fim main")
 }
 
