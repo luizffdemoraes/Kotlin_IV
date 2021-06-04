@@ -1,49 +1,29 @@
 package br.com.alura.bytebank
 
+import br.com.alura.bytebank.exception.SaldoInsuficienteException
 import br.com.alura.bytebank.modelo.Endereco
+import testaExpressao
 import java.lang.ClassCastException
 
 fun main() {
     println("início main")
-    val entrada: String = "1.9"
-
-    //abordagem de trabalhar com valores imutaveis
-    //utilização da expressão try
-    // ? significa que e um double que pode ser nulo
-    val valorRecebido: Double? = try {
-        entrada.toDouble() //metodo de conversão
-    } catch (e: NumberFormatException) {
-        println("problema na conversão")
-        e.printStackTrace()
-        null
-    }
-
-    //utilização da expressão if e else
-    val valorComTaxa: Double? = if(valorRecebido != null){
-        valorRecebido + 0.1
-    }else{
-        null
-    }
-
-    if(valorComTaxa  != null){
-        println("Valor recebido: $valorComTaxa")
-    }else{
-        println("Valor inválido")
-    }
-
+//    teste()
     funcao1()
     println("fim main")
 }
+
+//recrusão infinita teremos problema ela chama ela mesma sem ponto de parada
+//fun teste(){
+//    return teste()
+//}
+
 
 fun funcao1() {
     println("início funcao1")
     try {
         funcao2()
-    } catch (e: ClassCastException) {
-//        println(e.message)
-//        println(e.stackTrace)
-//        println(e.cause)
-        println(e.printStackTrace()) //nela temos as 3 informações acima
+    } catch (e: SaldoInsuficienteException) {
+        println(e.printStackTrace()) //nela temos as 3 informações e.cause / e.stackTrace / e.message
         println("ClassCastException foi encontrada no codigo")
     }
     println("fim funcao1")
@@ -51,15 +31,15 @@ fun funcao1() {
 
 fun funcao2() {
     println("início funcao2")
-
     for (i in 1..5) {
         println(i)
-        val endereco = Any()
-        endereco as Endereco
+       throw SaldoInsuficienteException()
 
     }
     println("fim funcao2")
 }
+
+
 
 //var valorRecebido: Double = 0.0
 
