@@ -2,17 +2,18 @@ package br.com.alura.bytebank
 
 import br.com.alura.bytebank.exception.SaldoInsuficienteException
 import br.com.alura.bytebank.modelo.Endereco
+import br.com.alura.bytebank.teste.testaComportamentosConta
 import testaExpressao
 import java.lang.ClassCastException
 
 fun main() {
     println("início main")
-//    teste()
+    testaComportamentosConta()
     funcao1()
     println("fim main")
 }
 
-//recrusão infinita teremos problema ela chama ela mesma sem ponto de parada
+//recursão infinita teremos problema ela chama ela mesma sem ponto de parada
 //fun teste(){
 //    return teste()
 //}
